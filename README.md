@@ -1,7 +1,7 @@
 - A detailed report on preprocessing, experiment setup, and results is also added in this repository for reference purposes.
 
 
-Here is the file description for each of the files related to the Prediction task. All these files are under the folder 'H-1B Prediction Files' folder.
+- Below are the file descriptions for each of the files related to the H-1B case status prediction task. All these files are under the folder 'H-1B Prediction Files' folder.
 
 
 1. h1b_clean_for_prediction : This notebook has all the data cleaning and preprocessing steps to prepare the data so that it can be used for a classification problem.
