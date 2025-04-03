@@ -1,4 +1,4 @@
-- A detailed report on preprocessing, experiment setup, and results is also added in this repository for reference purposes.
+- A [detailed report]("Gateway_to_Opportunity__An_Overview_of_Non_Immigrant_Visas.pdf") on preprocessing, experimental setups, and results is also added in this repository for reference purposes.
 
 
 - Below are the file descriptions for each of the files related to the H-1B case status prediction task. All these files are under the folder 'H-1B Prediction Files' folder.
