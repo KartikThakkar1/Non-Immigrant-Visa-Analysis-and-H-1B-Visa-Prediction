@@ -1,6 +1,6 @@
 # Non - Immigrant Visa Analysis and End-to-End H-1B Visa prediction usinf dbt (Data Base Tool) and Python 
 
-For an interactive insight on Non Immigrant Visa, visit [My Tableau Profile](https://public.tableau.com/views/US-NonImmigrantVisas/NonImmigrantVisaIssuancesByNationality-FY24?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+For an interactive insight on Non Immigrant Visa Issuances, visit [My Tableau Profile](https://public.tableau.com/views/US-NonImmigrantVisas/NonImmigrantVisaIssuancesByNationality-FY24?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 This repository contains all the work and experiments carried out to build a robust prediction model, The [Gateway to Opportunity PDF](./docs/Gateway_to_Opportunity__An_Overview_of_Non_Immigrant_Visas.pdf)
 file contains the details about the experiments.**All folders and files outside of the `project_walkthrough` folder are part of the initial experiments conducted to decide on a suitable classification method.** If you are interested in the actual workflow and final implementation, please refer to the `project_walkthrough` folder.
