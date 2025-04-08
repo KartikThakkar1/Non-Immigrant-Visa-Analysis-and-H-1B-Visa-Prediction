@@ -1,17 +1,94 @@
-- A [detailed report](Gateway_to_Opportunity__An_Overview_of_Non_Immigrant_Visas.pdf) on preprocessing, experimental setups, and results is also added in this repository for reference purposes.
+# Non - Immigrant Visa Analysis and End-to-End H-1B Visa prediction using dbt (Data Base Tool) and Python 
+
+For an interactive insight on Non Immigrant Visa Issuances, visit [My Tableau Profile](https://public.tableau.com/views/US-NonImmigrantVisas/NonImmigrantVisaIssuancesByNationality-FY24?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) . 
+
+This repository contains all the work and experiments carried out to build a robust prediction model, The [Gateway to Opportunity PDF](./Gateway_to_Opportunity__An_Overview_of_Non_Immigrant_Visas.pdf)
+file contains the details about the experiments.**All folders and files outside of the `project_walkthrough` folder are part of the initial experiments conducted to decide on a suitable classification method.** If you are interested in the actual workflow and final implementation, please refer to the `project_walkthrough` folder.
+
+## Project Walkthrough Folder Structure
+The `project_walkthrough` folder contains the finalized workflow, organized in the following structure:
+
+### Root Files
+- **directory_structure.txt**: Contains a detailed structure of the project.
+
+### Data Folder
+- **perm_23_q4.xlsx**: The raw dataset used for data processing and transformation.
+
+### DBT Folder
+The DBT folder contains the configurations and SQL models used for data transformations.
+
+#### Subfolders:
+- **analyses**: Contains analysis scripts (currently empty).
+- **logs**: Logs generated during the dbt runs.
+- **macros**: Contains reusable macros for data transformations.
+- **models**: SQL models for staging and transforming the data.
+  - **staging**: Intermediate transformations.
+    - **binning.sql**: Binning data.
+    - **education_encoding.sql**: Encoding educational information.
+    - **employer_age.sql**: Calculating employer age.
+    - **feature_selection.sql**: Selecting relevant features.
+  - **transforming**: Final transformations.
+    - **convert_yes_no.sql**: Converts binary columns from yes/no to 1/0.
+    - **dim_transformed.sql**: Combines binning and transformed data.
+    - **target_class.sql**: Defines the target class for classification.
+- **seeds**: Contains seed files for dbt (currently empty).
+- **snapshots**: Used for capturing data at a specific point in time (currently empty).
+- **target**: Stores compiled models and artifacts generated after dbt runs.
+- **tests**: Contains test cases for validating dbt transformations.
+
+### Logs Folder
+- **dbt.log**: Logs from dbt runs for debugging and monitoring.
+
+### Notebooks Folder
+- **EDA_transformation.ipynb**: Exploratory data analysis and initial transformations.
+- **prediction.ipynb**: Predictive analysis and model evaluation.
+
+### Scripts Folder
+- **load_xlsx_to_postgres.py**: Script to load data from Excel to PostgreSQL.
+- **state_country_transform.ipynb**: Additional transformations for state and country data.
 
 
-- Below are the file descriptions for each of the files related to the H-1B case status prediction task. All these files are under the folder 'H-1B Prediction Files' folder.
+
+### Classification Results and Insights
+
+The classification model was trained using **SMOTE sampling** to handle class imbalance and a **Random Forest Classifier** for prediction. The model was evaluated using precision, recall, and F1-score metrics. Here are the key takeaways:
+
+#### Classification Report (SMOTE + Random Forest)
 
 
-1. h1b_clean_for_prediction : This notebook has all the data cleaning and preprocessing steps to prepare the data so that it can be used for a classification problem.
+| Metric       | Class 0 | Class 1 | Accuracy | Macro Avg | Weighted Avg |
+|-------------|--------|--------|---------|----------|--------------|
+| Precision   | 0.97   | 0.98   |         | 0.97     | 0.97         |
+| Recall      | 0.98   | 0.97   |         | 0.97     | 0.97         |
+| F1-Score    | 0.97   | 0.97   |         | 0.97     | 0.97         |
+| Support     | 18514  | 18631  | 37145   | 37145    | 37145        |
 
-2. prediction.ipynb : This notebook has the results for using a random forest classifier on unbalanced data. It also has results for using random forest classifier on unbalanced data but using important features.
+**Accuracy:** 0.9748
 
-3. prediction_resample_balanced.ipynb : This notebookhas  the results for using a random forest classifier on data where minority class is upsampled to create a balanced training set.
 
-4. prediction_resample_balanced_2.ipynb : This notebook has the results for using a random forest classifier on data where majority class is downsampled to create a balanced training set.
+1. **High Accuracy:**  
+   - The model achieved an accuracy of **97.48%**, indicating that it correctly classified the majority of instances.
 
-5. prediction_balanced_rf.ipynb : This notebook has the results for using a balanced random forest classifier on unbalanced data. It also has same results for a balanced random classifier trained on important features.
+2. **Balanced Performance Across Classes:**  
+   - Both classes (0 and 1) demonstrated similarly high performance metrics:
+     - **Class 0:** Precision = 0.97, Recall = 0.98, F1-score = 0.97  
+     - **Class 1:** Precision = 0.98, Recall = 0.97, F1-score = 0.97  
+   - This balanced performance suggests that the model does not favor one class over the other, indicating that SMOTE sampling effectively addressed the class imbalance.
 
-6. prediction_smote.ipynb : This notebook has the results for using data balanced by using SMOTE technique.
+3. **Macro and Weighted Averages:**  
+   - Both the **macro average** and **weighted average** of precision, recall, and F1-score are 0.97, confirming consistent performance across classes. 
+
+4. **Generalization and Robustness:**  
+   - The high accuracy and balanced metrics indicate that the model generalizes well to new data without significant bias towards any particular class.  
+
+In summary, the combination of SMOTE sampling and the Random Forest Classifier resulted in a robust model with high accuracy and balanced classification performance.
+
+
+## To carry out the same project, 
+1. Clone the repository and navigate to the project_walkthrough folder.
+2. Load the data using the `load_xlsx_to_postgres.py` script.
+3. Run the dbt models to perform data transformations.
+4. Open the notebooks for EDA and predictions.
+
+For any questions or further clarifications, improvements and contributions, feel free to reach out!
+
