@@ -58,12 +58,12 @@ The classification model was trained using **SMOTE sampling** to handle class im
 
 | Metric       | Class 0 | Class 1 | Accuracy | Macro Avg | Weighted Avg |
 |-------------|--------|--------|---------|----------|--------------|
-| Precision   | 0.97   | 0.98   |         | 0.97     | 0.97         |
-| Recall      | 0.98   | 0.97   |         | 0.97     | 0.97         |
-| F1-Score    | 0.97   | 0.97   |         | 0.97     | 0.97         |
+| Precision   | 0.93   | 0.96   |         | 0.95     | 0.95         |
+| Recall      | **0.96**   | 0.93  |         | 0.95    | 0.95        |
+| F1-Score    | 0.95   | 0.95  |         | 0.95     | 0.95         |
 | Support     | 18514  | 18631  | 37145   | 37145    | 37145        |
 
-**Accuracy:** 0.9748
+**Accuracy:** 95%
 
 
 1. **High Accuracy:**  
@@ -71,8 +71,8 @@ The classification model was trained using **SMOTE sampling** to handle class im
 
 2. **Balanced Performance Across Classes:**  
    - Both classes (0 and 1) demonstrated similarly high performance metrics:
-     - **Class 0:** Precision = 0.97, Recall = 0.98, F1-score = 0.97  
-     - **Class 1:** Precision = 0.98, Recall = 0.97, F1-score = 0.97  
+     - **Class 0:** Precision = 0.93, Recall = 0.96, F1-score = 0.95 
+     - **Class 1:** Precision = 0.96, Recall = 0.93, F1-score = 0.95  
    - This balanced performance suggests that the model does not favor one class over the other, indicating that SMOTE sampling effectively addressed the class imbalance.
 
 3. **Macro and Weighted Averages:**  
