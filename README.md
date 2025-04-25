@@ -1,4 +1,4 @@
-# Non - Immigrant Visa Analysis and End-to-End H-1B Visa prediction using dbt (Data Base Tool) and Python 
+# Non - Immigrant Visa Analysis and End-to-End H-1B Visa prediction using dbt (Data Build Tool) and Python 
 
 For an interactive insight on Non Immigrant Visa Issuances, visit [My Tableau Profile](https://public.tableau.com/views/US-NonImmigrantVisas/NonImmigrantVisaIssuancesByNationality-FY24?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) . 
 
